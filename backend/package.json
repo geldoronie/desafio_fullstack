@@ -1,0 +1,33 @@
+{
+  "name": "desafio_fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cpf-cnpj-validator": "^1.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "express-validator": "^6.12.1",
+    "moment": "^2.29.1",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.12",
+    "pg": "^8.7.1",
+    "pg-promise": "^10.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yt112358/desafio_fullstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yt112358/desafio_fullstack/issues"
+  },
+  "homepage": "https://github.com/yt112358/desafio_fullstack#readme"
+}
