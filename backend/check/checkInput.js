@@ -15,13 +15,20 @@ checkSchema({
         },
     },
     duedate: {
+        in: ['body'],
         isLength: {
             options: { min: 10, max: 10 }
         },
         exists: true,
-        custom: {
-            
-        }
+        custom: true
+    },
+    done: {
+        in: ['body'],
+        isBoolean: true
+    },
+    hide: {
+        in: ['body'],
+        isBoolean: true
     }
 });
 
