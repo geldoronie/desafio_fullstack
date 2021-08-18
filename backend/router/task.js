@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const pool = require('../db/pool');
 const express = require('express');
+const cors = require('cors');
 const moment = require('moment');
 const checkInput = require('../check/checkInput');
 
@@ -22,12 +23,12 @@ router.get("/", (req, res) => {
             });
             return;
         }
-        console.log(results);
 
         results.rows.map((row) => {
             row.duedate = row.duedate === null ? "" : moment(row.duedate).format("DD/MM/YYYY");
         });
         // when success, return json
+        //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
         res.status(200).json(results.rows);
     });
 });

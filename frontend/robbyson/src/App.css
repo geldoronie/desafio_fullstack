@@ -1,0 +1,103 @@
+/** Common */
+body {
+  background-color: #f1ffff;
+}
+
+.container {
+  margin: 20px 40px;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.clickable {
+  cursor: pointer;
+}
+
+/** Common parts */
+.arrow_down {
+  transform: rotate( 180deg );
+  width: 20px;
+}
+.input_area {
+  position: relative;
+  text-align: right;
+  display: grid;
+  grid-template-columns: 45% 10% 40%;
+  grid-column-gap: 5%
+  /* border: 1px solid black; */
+}
+.input_area_subgrid {
+  position: relative;
+  text-align: right;
+  display: grid;
+  grid-template-columns: 58% 38%;
+  grid-column-gap: 4%
+  /* border: 1px solid black; */
+}
+
+.book_item_rows {
+  display: grid;
+  /* grid-template-rows: 200px 100px; */
+  grid-template-columns:  20% 20% 20% 20%;
+  grid-column-gap: 5%;
+  grid-row-gap: 1rem;
+  text-align: center;
+}
+
+.task_item {
+  align-items: center;
+}
+
+
+.text {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.book_detail {
+  text-align: left;
+  font-size: 10px;
+  padding-left: 20px;
+}
+
+/** Detail */
+.detailContainer {
+  width: 50vw;
+  text-align: left;
+  margin: auto;
+}
+.detail_book_detail {
+  font-size: 16px;
+}
+.detail_description {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 38em) {
+  .container {
+    margin: 5px 20px;
+  }
+  .book_item_rows {
+    display: grid;
+    /* grid-template-rows: 200px 100px; */
+    grid-template-columns:  100%;
+    grid-column-gap: 5%;
+    grid-row-gap: 1rem;
+    text-align: center;
+  }
+  .input_area {
+    position: relative;
+    text-align: right;
+    display: grid;
+    grid-template-columns: 100%;
+    /* border: 1px solid black; */
+  }
+  .detailContainer {
+    width: 90vw;
+    text-align: left;
+    margin: auto;
+  }
+}
