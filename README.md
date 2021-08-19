@@ -33,6 +33,6 @@ Para rodar em ambiente local:
 1. Clone este repository
 2. Execute command embaixo na pasta de 1.
 
-  cd frontend/robbyson<br/>
-  npm install<br/>
-  npm run start
+  	cd frontend/robbyson<br/>
+  	npm install<br/>
+  	npm run start
