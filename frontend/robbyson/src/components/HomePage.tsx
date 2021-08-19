@@ -20,7 +20,6 @@ const HomePage: React.FC<Props> = () => {
   const [keyword, setKeyword] = useState("")
   const [error, setError] = useState("")
 
-  
   const filtereTask = () => {
     setError("")
     TaskService.getFiltered(keyword)
@@ -32,7 +31,7 @@ const HomePage: React.FC<Props> = () => {
     })
     .catch((error) => {
       console.log(error)
-      setError(error)
+      setError("Algum erro ocorreu ao buscar as tarefas")
     })
   }
 
@@ -51,7 +50,7 @@ const HomePage: React.FC<Props> = () => {
     })
     .catch((error) => {
       console.log(error)
-      setError(error)
+      setError("Algum erro ocorreu ao adicionar as tarefas")
     })
   }
 
@@ -64,7 +63,7 @@ const HomePage: React.FC<Props> = () => {
     })
     .catch((error) => {
       console.log(error)
-      setError(error.toString())
+      setError("Algum erro ocorreu ao atualizar as tarefas")
     })
   }
   const deleteTask = (task: Task) => {
@@ -75,7 +74,7 @@ const HomePage: React.FC<Props> = () => {
     })
     .catch((error) => {
       console.log(error)
-      setError(error)
+      setError("Algum erro ocorreu ao excluir as tarefas")
     })
   }
   const patchTask = (task: Task) => {
@@ -86,7 +85,7 @@ const HomePage: React.FC<Props> = () => {
     })
     .catch((error) => {
       console.log(error)
-      setError(error)
+      setError("Algum erro ocorreu ao mudar estado das tarefas")
     })
   }
 
@@ -95,7 +94,7 @@ const HomePage: React.FC<Props> = () => {
       <div className="container">
         <Grid container spacing={1}>
           <Grid item xs={12}>
-            {(error !== "") ? <div><span>{error}</span></div> : "" }
+            <div>{error}</div>
           </Grid>
           <Grid item xs={12}>
             <div className="input_area">
