@@ -9,14 +9,20 @@ var cors = require('cors');
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 // use it before all route definitions
-router.use(cors({origin: 'http://localhost:3001'}));
+//router.use(cors({origin: `http://localhost:${process.env.PORT_FRONT}`}));
+router.use(cors({origin: `http://localhost:3001`}));
 
 router.use("/", checkInput);
 
 /** GET Request for /task (search) */
 router.get("/", (req, res) => {
-    const text = 'SELECT * FROM task order by _id';
-    pool.query(text, function(error, results) {
+    let keyword = "%"; //req.keyword === null ? "%" : `%${keyword}%`
+    if(req.query.keyword) {
+        keyword = `%${req.query.keyword}%`;
+    }
+    const text = 'SELECT * FROM task WHERE description like $1 order by _id';
+    const values = [ keyword ];
+    pool.query(text, values, function(error, results) {
         if (error) {
             //throw error
             console.log(error);
@@ -31,7 +37,6 @@ router.get("/", (req, res) => {
             row.duedate = row.duedate === null ? "" : moment(row.duedate).format("DD/MM/YYYY");
         });
         // when success, return json
-        //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
         res.status(200).json(results.rows);
     });
 });

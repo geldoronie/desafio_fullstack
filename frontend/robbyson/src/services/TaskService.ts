@@ -6,8 +6,9 @@ class TaskService {
     const taskList = http.get("/task")
     return taskList
   }
-  getFiltered(description: String) {
-    return http.get("/task?keyword=" + description)
+  getFiltered(keyword: String) {
+    console.log("keyword " + keyword)
+    return http.get("/task?keyword=" + keyword)
   }
   addTask(task: Task) {
     const result = http.post("/task", task)

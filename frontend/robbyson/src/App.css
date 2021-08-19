@@ -2,7 +2,10 @@
 body {
   background-color: #f1ffff;
 }
-
+button {
+  background-color: #2196F3;
+  color: white;
+}
 .container {
   margin: 20px 40px;
 }
@@ -15,7 +18,15 @@ body {
 .clickable {
   cursor: pointer;
 }
-
+.red {
+  background-color: #E91E63;
+}
+.green {
+  background-color: #00BCD4;
+}
+.grey {
+  background-color: #607D8B;
+}
 /** Common parts */
 .arrow_down {
   transform: rotate( 180deg );

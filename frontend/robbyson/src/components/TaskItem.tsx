@@ -1,8 +1,13 @@
 import React, {useState} from 'react'
 import { Task } from '../types/Types'
 import { Grid, TextField } from '@material-ui/core'
-import moment from 'moment'
-import TaskService from '../services/TaskService'
+
+const rowStyle = {
+    backgroundColor: "#E3F2FD"
+}
+const doneStyle = {
+    backgroundColor: "lightgrey"
+}
  
 type Props = {
     task: Task
@@ -32,46 +37,63 @@ const TaskItem: React.FC<Props> = ({ task, handleUpdate, handleDone, handleHide,
     }
 
     return (
-        <Grid container>
-            <Grid item xs={4}>
-                <TextField
-                    value={inputDescription}
-                    onChange={handleChangeDescription}
-                ></TextField>
-                {/*<span className="checkbox-label">{ task.description }</span>*/}
+        <Grid container key={"task_item_" + task._id + "_hide_" + task.hide} style={task.done ? doneStyle : rowStyle}>
+            <Grid item xs={6} lg={4}>
+                {task.hide ?
+                    <div>{task.description}</div>
+                    :
+                    <TextField
+                        key={"task_item_text1_" + task._id}
+                        value={inputDescription}
+                        onChange={handleChangeDescription}
+                    ></TextField>
+                }
             </Grid>
-            <Grid item xs={4}>
-                <TextField
-                    value={inputDuedate}
-                    onChange={handleChangeDuedate}
-                ></TextField>
-                {/** 
-                <span className="checkbox-label">{ task.duedate ? moment(task.duedate).format("DD/MM/YYYY") : "-" }</span>
-                */}
+            <Grid item xs={6} lg={4}>
+                {task.hide ?
+                    <div>{task.duedate}</div>
+                    :
+                    <TextField
+                        value={inputDuedate}
+                        onChange={handleChangeDuedate}
+                    ></TextField>
+                }
             </Grid>
-            <Grid item xs={1}>
-                <button
-                    onClick={updateTask}
-                    className="btn"
-                >Atualizar</button>
+            <Grid item xs={3} lg={1}>
+                {task.hide ?
+                    <div></div>
+                    :
+                    <button
+                        onClick={updateTask}
+                        className="blue"
+                    >Atualizar</button>
+                }
             </Grid>
-            <Grid item xs={1}>
-                <button
-                    onClick={() => handleDelete(task)}
-                    className="btn"
-                >Excluir</button>
+            <Grid item xs={3} lg={1}>
+                {task.hide ?
+                        <div></div>
+                        :
+                        <button
+                        onClick={() => handleDelete(task)}
+                        className="red"
+                    >X Excluir</button>
+                }
             </Grid>
-            <Grid item xs={1}>
-                <button
-                    onClick={() => handleDone(task)}
-                    className="btn"
-                >Concluir</button>
+            <Grid item xs={3} lg={1}>
+                {task.hide ? 
+                    <span>{task.done ? "Concluida" : "Aberta"}</span>
+                    :
+                    <button
+                        onClick={() => handleDone(task)}
+                        className={task.done ? "grey" : "green"}
+                    >{task.done ? "Desfazer" : "Concluir"}</button>
+                }
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={3} lg={1}>
                 <button
                     onClick={() => handleHide(task)}
-                    className="btn"
-                >Esconder</button>
+                    className="blue"
+                >{task.hide ? "Mostrar" : "Esconder"}</button>
             </Grid>
         </Grid>
     )
