@@ -31,8 +31,8 @@ Para rodar em ambiente local:
 
 3. [Frontend]<br/>
 	3-1. Execute command embaixo na pasta frontend/robbyson.<br/>
-		[dir]> cd frontend/robbyson<br/>
 		*** Edite .env no caso necessário.<br/>
-	
-  		[dir]/frontend/robbyson> npm install<br/>
-  		[dir]/frontend/robbyson> npm run start
+		
+	[dir]> cd frontend/robbyson<br/>
+	[dir]/frontend/robbyson> npm install<br/>
+	[dir]/frontend/robbyson> npm run start
