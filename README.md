@@ -12,7 +12,7 @@ Para rodar em ambiente local:
 	[dir]> git clone https://github.com/yt112358/desafio_fullstack.git
 
 2. Vai para a pasta backend: <br/>
-  cd backend
+  cd desafio_fullstack/backend
   
 3. Edite .env file na pasta de 1.<br/>
 	PORT=3000             => Port do servidor WEB<br/>
