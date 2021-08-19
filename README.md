@@ -14,7 +14,7 @@ Para rodar em ambiente local:
 	2-1. Vai para a pasta backend: <br/>
   		cd desafio_fullstack/backend
   
-	2-2. Edite .env file na pasta de 1.<br/>
+	2-2. Edite .env file na pasta de 2-1.<br/>
 		PORT=3000             => Port do servidor WEB<br/>
 		DB_PORT=5432          => Port do banco de dados<br/>
 		DB_HOST=localhost     => Nome do host<br/>
@@ -23,17 +23,16 @@ Para rodar em ambiente local:
 		DB_PASSWORD=root      => Senha para o usuário<br/>
   
 	2-3. Execute command abaixo na pasta de 1.<br/>
-		[dir]> npm install<br/>
-		[dir]> node initdb.js<br/>
-		[dir]> node index.js<br/>
+		[dir]/backend> npm install<br/>
+		[dir]/backend> node initdb.js<br/>
+		[dir]/backend> node index.js<br/>
   
 <p/>
 
 3. [Frontend]
-	Execute command embaixo na pasta de 1.
-
-  	cd frontend/robbyson<br/>
-	* Edite .env no caso necessário.<br/>
+	3-1. Execute command embaixo na pasta frontend/robbyson.
+		[dir]> cd frontend/robbyson<br/>
+		*** Edite .env no caso necessário.<br/>
 	
-  	npm install<br/>
-  	npm run start
+  		[dir]/frontend/robbyson> npm install<br/>
+  		[dir]/frontend/robbyson> npm run start
