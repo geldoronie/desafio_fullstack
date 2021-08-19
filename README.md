@@ -7,11 +7,11 @@ Para rodar em ambiente local:
 
 * PostgreSQL precisa ser instalado.
 
-#[Backend]
+# [Backend]
 1. Clone o repositório.<br/>
 	[dir]> git clone https://github.com/yt112358/desafio_fullstack.git
 
-2. Vai para a pasta backend:
+2. Vai para a pasta backend: <br/>
   cd backend
   
 3. Edite .env file na pasta de 1.<br/>
@@ -29,7 +29,7 @@ Para rodar em ambiente local:
   
 <p/>
 
-#[Frontend]
+# [Frontend]
 1. Clone este repository
 2. Execute command embaixo na pasta de 1.
 
