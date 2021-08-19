@@ -4,6 +4,7 @@ import { Task } from '../types/Types';
 import TaskList from './TaskList'
 import TaskService from '../services/TaskService'
 import { Grid, Input, FormControl } from '@material-ui/core'
+import TaskInput from './TaskInput'
 //import { flexbox } from '@material-ui/system'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
@@ -44,16 +45,15 @@ const HomePage: React.FC<Props> = () => {
 
   const retrieveTasks = () => {
     TaskService.getAll()
-      //.then(()=>console.log("getAll"))
-      .then(response => {
-        console.log(response)
-        setTasks(response.data)
-        //setFilteredBooks(response.data)
-      })
-      .catch(e => {
-        console.log(e)
-      });
-    }
+    .then(response => {
+      console.log(response)
+      setTasks(response.data)
+      //setFilteredBooks(response.data)
+    })
+    .catch(e => {
+      console.log(e)
+    });
+  }
 
   useEffect(() => {
     console.log("TEST2")
@@ -65,6 +65,46 @@ const HomePage: React.FC<Props> = () => {
     setKeyword(e.currentTarget.value)
     retrieveTasks()
   };
+
+  const addTask = (task: Task) => {
+    //task.duedate = new Date()
+    TaskService.addTask(task)
+    .then((response) => {
+      retrieveTasks()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  const updateTask = (task: Task) => {
+    console.log('updateTask')
+    TaskService.updateTask(task)
+    .then((response) => {
+      retrieveTasks()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+  const deleteTask = (task: Task) => {
+    TaskService.deleteTask(task._id)
+    .then((response) => {
+      retrieveTasks()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+  const patchTask = (task: Task) => {
+    TaskService.patchTask(task)
+    .then((response) => {
+      retrieveTasks()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
 
   return (
     <div>
@@ -86,14 +126,16 @@ const HomePage: React.FC<Props> = () => {
             </div>
           </Grid>
           <Grid item xs={12}>
-            <div className="text">
-              Total: {tasks.length}
-            </div>
+            <TaskInput addTask={addTask} />
           </Grid>
           <Grid item xs={12}>
             <TaskList 
               tasks={tasks} 
-              setTasks={setTasks} />
+              setTasks={setTasks} 
+              updateTask={updateTask}
+              deleteTask={deleteTask}
+              patchTask={patchTask}
+              />
           </Grid>
         </Grid>
       </div>

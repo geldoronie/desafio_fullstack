@@ -1,7 +1,7 @@
 export type Task = {
     _id: number
     description: string
-    duedate: Date
+    duedate: string
     done: boolean
     hide: boolean
 }

@@ -5,16 +5,26 @@ import { Task } from '../types/Types'
 type Props = {
     tasks: Task[]
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>
+    updateTask: (task: Task) => void
+    deleteTask: (task: Task) => void
+    patchTask: (task: Task) => void
 }
 
-const TaskList: React.FC<Props> = ({ tasks, setTasks }) => {
-    
-    const handleChange = (e: any, task: Task) => {
+const TaskList: React.FC<Props> = ({ tasks, setTasks, updateTask, deleteTask, patchTask }) => {
+
+    const handleChange = (e: any, task: Task, index: number) => {
         console.log("handleChange " + e.currentTarget.value);
         task.description = e.currentTarget.value
+        tasks[index] = task
+        console.log(tasks)
         setTasks(tasks)
     };
 
+
+    const handleUpdate = (task: Task) => {
+        console.log("handleUpdate")
+        updateTask(task)
+    }
     return (
         <>
             <div>
@@ -26,11 +36,11 @@ const TaskList: React.FC<Props> = ({ tasks, setTasks }) => {
                         <TaskItem
                             key={"task_" + index}
                             task={task}
-                            handleUpdate={()=>console.log("update")}
-                            handleDone={()=>console.log("done")}
-                            handleHide={()=>console.log("hide")}
-                            handleDelete={()=>console.log("handleDelete")}
-                            handleChange={handleChange}
+                            handleUpdate={handleUpdate}
+                            handleDone={patchTask}
+                            handleHide={patchTask}
+                            handleDelete={deleteTask}
+                            //handleChange={(evt) => handleChange(evt, task, index)}
                         />
                     </div>
                 ) }

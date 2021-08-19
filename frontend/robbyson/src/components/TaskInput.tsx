@@ -1,17 +1,22 @@
-import moment from 'moment'
 import React, { useState } from 'react'
 import { Task } from '../types/Types'
  
 type Props = {
-    setTasks: React.Dispatch<React.SetStateAction<Task[]>>
-    tasks: Task[]
+    /*setTasks: React.Dispatch<React.SetStateAction<Task[]>>
+    tasks: Task[]*/
+    addTask: (task: Task) => void
 }
  
-const TaskInput: React.FC<Props> = ({ setTasks, tasks }) => {
+const TaskInput: React.FC<Props> = ({ addTask }) => {
     const [ inputDescription, setInputDescription ] = useState<string>('')
+    const [ inputDate, setInputDate ] = useState<string>('')
  
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputDescription(e.target.value)
+    }
+
+    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputDate(e.target.value)
     }
  
     const handleSubmit = () => {
@@ -19,36 +24,33 @@ const TaskInput: React.FC<Props> = ({ setTasks, tasks }) => {
         const newTask: Task = {
             _id: 0,
             description: inputDescription,
-            duedate: new Date(),
+            duedate: inputDate,
             done: false,
             hide: false
         }
          
-        setTasks([newTask, ...tasks])
+        addTask(newTask)
         setInputDescription('')
+        setInputDate("")
     }
  
     return (
         <>
-            <div>
-                <input
-                    type="text"
-                    className="input"
-                    value={inputDescription}
-                    onChange={handleInputChange}
-                />
-                <button onClick={handleSubmit} className="btn is-primary">Adicionar</button>
-            </div>
-            <div>
-                <input
-                    type="text"
-                    className="input"
-                    value={inputDescription}
-                    onChange={handleInputChange}
-                />
-                <button onClick={handleSubmit} className="btn is-primary">Adicionar</button>
-            </div>
-
+            <input
+                placeholder="Descrição"
+                type="text"
+                className="input"
+                value={inputDescription}
+                onChange={handleInputChange}
+            />
+            <input
+                placeholder="Data de concluir"
+                type="text"
+                className="input"
+                value={inputDate}
+                onChange={handleDateChange}
+            />
+            <button onClick={handleSubmit} className="btn">Adicionar</button>
         </>
     )
 }

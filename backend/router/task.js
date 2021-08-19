@@ -1,12 +1,15 @@
 const router = require("express").Router();
 const pool = require('../db/pool');
 const express = require('express');
-const cors = require('cors');
 const moment = require('moment');
 const checkInput = require('../check/checkInput');
+var cors = require('cors');
+
 
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
+// use it before all route definitions
+router.use(cors({origin: 'http://localhost:3001'}));
 
 router.use("/", checkInput);
 
