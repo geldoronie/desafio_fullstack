@@ -29,8 +29,8 @@ Para rodar em ambiente local:
   
 <p/>
 
-3. [Frontend]
-	3-1. Execute command embaixo na pasta frontend/robbyson.
+3. [Frontend]<br/>
+	3-1. Execute command embaixo na pasta frontend/robbyson.<br/>
 		[dir]> cd frontend/robbyson<br/>
 		*** Edite .env no caso necessário.<br/>
 	
