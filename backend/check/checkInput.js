@@ -40,7 +40,6 @@ router.post('/', [
         .optional({nullable: false})
         .isLength({ min: 10, max: 10 })
         .custom(value => {
-            console.log("value " + value);
             return moment(value, "DD/MM/YYYY").isValid();
         }),
 ], (req, res, next) => {
@@ -72,8 +71,6 @@ router.put('/:task_id', [
     }
 
     const taskId = `${req.params.task_id}`;
-    console.log("update taskId " + taskId);
-
     
     next();
 });
@@ -88,7 +85,6 @@ router.delete('/:task_id', [
     }
 
     const taskId = `${req.params.task_id}`;
-    console.log("delete taskId " + taskId);
 
     next();
 });
@@ -110,9 +106,6 @@ router.patch('/:task_id', [
     const taskId = `${req.params.task_id}`;
     const done = `${req.body.done}`;
     const hide = `${req.body.hide}`;
-    console.log("patch taskId " + taskId);
-    console.log("done " + done);
-    console.log("hide " + hide);
 
     next();
 });
