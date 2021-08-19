@@ -31,8 +31,9 @@ Para rodar em ambiente local:
 
 # [Frontend]
 1. Clone este repository
-2. Execute command embaixo na pasta de 1.
+3. Execute command embaixo na pasta de 1.
 
   	cd frontend/robbyson<br/>
+	* Edite .env no caso necessário.
   	npm install<br/>
   	npm run start
