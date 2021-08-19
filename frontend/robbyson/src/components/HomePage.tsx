@@ -103,7 +103,7 @@ const HomePage: React.FC<Props> = () => {
                 <TextField
                   className="input"
                   onChange={handleChange}
-                  placeholder="Procurar as tarefas"
+                  placeholder="Filtrar as tarefas"
                   value={keyword}
                 />
               </FormControl>

@@ -13,16 +13,13 @@ type Props = {
 const TaskList: React.FC<Props> = ({ tasks, updateTask, deleteTask, patchTask }) => {
 
     const handleUpdate = (task: Task) => {
-        console.log("handleUpdate")
         updateTask(task)
     }
     const handleHide = (task: Task) => {
-        console.log("handleHide")
         task.hide = !task.hide
         patchTask(task)
     }
     const handleDone = (task: Task) => {
-        console.log("handleHide")
         task.done = !task.done
         patchTask(task)
     }
@@ -43,7 +40,6 @@ const TaskList: React.FC<Props> = ({ tasks, updateTask, deleteTask, patchTask })
                             handleDone={handleDone}
                             handleHide={handleHide}
                             handleDelete={deleteTask}
-                            //handleChange={(evt) => handleChange(evt, task, index)}
                         />
                     </div>
                     :
@@ -54,9 +50,9 @@ const TaskList: React.FC<Props> = ({ tasks, updateTask, deleteTask, patchTask })
             </div>
             <br/>
             <hr/>
-            <h3>Tarefas escondidas:</h3>
+            <h3>Tarefas arquivadas:</h3>
             <div>
-            { tasks.map( (task, index) => 
+                { tasks.map( (task, index) => 
                     task.hide === true ?
                     <div className="clickable" key={"div_" + index}>
                         <TaskItem
@@ -66,7 +62,6 @@ const TaskList: React.FC<Props> = ({ tasks, updateTask, deleteTask, patchTask })
                             handleDone={patchTask}
                             handleHide={handleHide}
                             handleDelete={deleteTask}
-                            //handleChange={(evt) => handleChange(evt, task, index)}
                         />
                     </div>
                     :

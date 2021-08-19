@@ -86,14 +86,14 @@ const TaskItem: React.FC<Props> = ({ task, handleUpdate, handleDone, handleHide,
                     <button
                         onClick={() => handleDone(task)}
                         className={task.done ? "grey" : "green"}
-                    >{task.done ? "Desfazer" : "Concluir"}</button>
+                    >{task.done ? "Desfazer" : "✔ Concluir"}</button>
                 }
             </Grid>
             <Grid item xs={3} lg={1}>
                 <button
                     onClick={() => handleHide(task)}
                     className="blue"
-                >{task.hide ? "Mostrar" : "Esconder"}</button>
+                >{task.hide ? "Ativar" : "Arquivar"}</button>
             </Grid>
         </Grid>
     )

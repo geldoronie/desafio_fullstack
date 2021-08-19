@@ -52,7 +52,7 @@ const TaskInput: React.FC<Props> = ({ addTask }) => {
                 />
             </Grid>
             <Grid item xs={3} lg={1}>
-                <button onClick={handleSubmit} className="btn">Adicionar</button>
+                <button onClick={handleSubmit} className="btn">+ Adicionar</button>
             </Grid>
         </Grid>
     )
