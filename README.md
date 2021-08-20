@@ -42,3 +42,5 @@ Para rodar em ambiente local:
 - No frontend seria interessante ter colocado uma mascara para que o usuario saiba qual o formato correto da data
 - No momento de alterar uma tarefa a atualização falha devido ao formato da data, pois o backend so aceita data no padrão americano porem a informação utilizada na tela esta no formado brasileiro, logo faltou tratar melhor o formato de entrada de datas no frontend e backend
 - Após concluir uma tarefa esta sendo possivel editar as informações da tarefa concluida
+- Esta sendo possivel arquivar tarefas não concluidas
+- Faltou validação dos campos, quando é solicitado para adicionar uma nova tarefa não é validado o preenchimento dos campos
