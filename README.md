@@ -36,3 +36,9 @@ Para rodar em ambiente local:
 	[dir]> cd frontend/robbyson<br/>
 	[dir]/frontend/robbyson> npm install<br/>
 	[dir]/frontend/robbyson> npm run start
+
+## Problemas Encontrados
+
+- No frontend seria interessante ter colocado uma mascara para que o usuario saiba qual o formato correto da data
+- No momento de alterar uma tarefa a atualização falha devido ao formato da data, pois o backend so aceita data no padrão americano porem a informação utilizada na tela esta no formado brasileiro, logo faltou tratar melhor o formato de entrada de datas no frontend e backend
+- Após concluir uma tarefa esta sendo possivel editar as informações da tarefa concluida
